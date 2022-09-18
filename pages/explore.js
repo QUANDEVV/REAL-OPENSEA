@@ -9,7 +9,7 @@ import images from '../assets';
 import { makeid } from '../utils/makeId';
 import NFTCard from '../components/NFTCard';
 
-const explore = () => {
+const Explore = () => {
   const [hideButtons, setHideButtons] = useState(false);
 const {theme } = useTheme()
   const parentRef = useRef(null)
@@ -48,11 +48,15 @@ const {theme } = useTheme()
                         <Image src={images.right} layout="fill" objectFit="contain" alt="left_arrow" className={theme === 'light' ? 'filter invert' : undefined} />
                       </div>
                     </> */}
-                  
-                
 
 </div>
+
+
+
       </div>
+
+    
+   
 
 
       <div className="mt-10">
@@ -86,4 +90,4 @@ const {theme } = useTheme()
   )
 }
 
-export default explore
+export default Explore

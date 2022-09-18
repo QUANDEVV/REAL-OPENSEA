@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import React from 'react'
+import { useContext } from 'react'
+ 
+import { NFTContext } from '../context/NFTContext'
+import Button from './Button'
 
 const style = {
   wrapper: `relative `,
@@ -18,11 +21,39 @@ const style = {
   author: `flex flex-col justify-center ml-4`,
   name: ``,
   infoIcon: `flex justify-end items-center flex-1 text-[#8a939b] text-3xl font-bold`,
+
 }
+
+
+const ButtonsGroup = () => {
+  const { connectWallet, currentAccount } = useContext(NFTContext);
+
+
+  return currentAccount ? (
+    
+      <Link href='/create-nft'>
+        <button className={style.button}>
+          Create
+        </button>
+      </Link>
+ 
+    
+  ) : (
+    <button className={style.button} onClick={connectWallet}>Connect</button>
+   
+
+  );
+};
+
+
 
 
 const Hero = () => {
   return (
+
+ 
+    
+    
     <div className={style.wrapper}>
       <div className={style.container}>
         <div className={style.contentWrapper}>
@@ -40,10 +71,9 @@ const Hero = () => {
 
             
              
-              <Link href='/create-nft'>
-              <button className={style.button} 
-              >Create</button>
-              </Link>
+             <ButtonsGroup />
+
+
             </div>
           </div>
           <div className={style.cardContainer}>
